@@ -4,7 +4,7 @@
 ### Introdução
 A solução proposta é baseada na identificação da mão a partir da assinatura do seu formato (*shape signature*) utilizando os descritores de fourier da função distância do centroide (*Centroid Distance Function*) em conjunto com redes neurais.
 
-A função distância do centroide  é formada pelas distâncias euclidianas entre o centroide de um objeto e os pontos que formam o seu contorno. Em processamento de imagens a função distância do centroide, às vezes chamada assinatura da forma, é considerada um descritor do formato de objetos. O trabalho de COSGRIFF (1960) foi o primeiro a propor o uso dos descritores de fourier para identificar objetos a partir da sua assinatura da forma. A ideia é representar o contorno do objeto por um conjunto de números que representem as frequências que formam o seu contorno. No caso dos descritores de fourier este conjunto é formado pelos coeficientes da transformada discreta de fourier da função distância do centroide (ALHILAL et al., 2015) (UCI DEPARTMENT OFMATHEMATICS, 2011).
+A função distância do centroide  é formada pelas distâncias euclidianas entre o centroide de um objeto e os pontos que formam o seu contorno. Em processamento de imagens a função distância do centroide, às vezes chamada assinatura da forma, é considerada um descritor do formato de objetos. O trabalho de COSGRIFF (1960) foi o primeiro a propor o uso dos descritores de fourier para identificar objetos a partir da sua assinatura da forma. A ideia é representar o contorno do objeto por um conjunto de números que representem as frequências que formam o seu contorno. No caso dos descritores de fourier este conjunto é formado pelos coeficientes da transformada discreta de fourier da função distância do centroide.
 
 [1] COSGRIFF, R. L. Identification of shape.OHIO STATE UNIVERSITY RESEARCHFOUNDATION, COLUMBUS, REP. 820-11,. ASTIA AD 254 792, 1960\
 [2] ALHILAL, M. S.; SOUDANI, A.; AL-DHELAAN, A. Image-based object identification forefficient event-driven sensing in wireless multimedia sensor networks.International Journal ofDistributed Sensor Networks, SAGE Publications, v. 11, n. 3, p. 850869, jan. 2015. Disponível em: <https://doi.org/10.1155/2015/850869>.\
@@ -14,12 +14,14 @@ A função distância do centroide  é formada pelas distâncias euclidianas ent
 ### Metodologia
 Todos os códigos foram escritos na linguagem Python v3.6 com os pacotes NumPy v1.16.2, SciPy v1.2.1, Pandas v0.24.1, Tensorflow-gpu v1.12.0 e Keras v2.2.4.
 
-A solução proposta é composta por 3 etapas:\
+A solução proposta é dividida em 3 partes:\
 1 - Preparar os dados de treinamento e avaliação\
 2 - Treinar os classificadores com os dados de treinamento\
 3 - Utilizar os classificadores com os dados de avaliação para resolver o problema
 
-O conjunto de treinamento é composto por um conjunto de 18 contornos de mãos que pertencem a 9 indivíduos distintos. Cada contorno é definido por 14 pontos. De cada contorno é extraída a função distância do centroide e, em seguida, é realizada a transformada discreta de fourier desta função. Os coeficientes das frequências que formam o contorno de cada mão são armazenadas no arquivo "trainData.csv". Este processo é realizado em "A_processRawData.py". Os 14 pontos que definem o contorno da mão em "marcaMao.jpg" foram identificados manualmente a partir de sua imagem. Estes pontos também deram origem a uma função distância do centroide cujos descritores de fourier foram armazenados em "targetHand.csv". Este processo é realizado em "B_processTargetHand.py"
+O conjunto de treinamento é composto por 18 contornos de mãos que pertencem a 9 indivíduos distintos e cada contorno é definido por 14 pontos. De cada contorno é extraída a função distância do centroide e, em seguida, é realizada a transformada discreta de fourier desta função.
+
+Os coeficientes das frequências que formam o contorno de cada mão são armazenadas no arquivo "trainData.csv". Este processo é realizado em "A_processRawData.py". Os 14 pontos que definem o contorno da mão em "marcaMao.jpg" foram identificados manualmente a partir de sua imagem. Estes pontos também deram origem a uma função distância do centroide cujos descritores de fourier foram armazenados em "targetHand.csv". Este processo é realizado em "B_processTargetHand.py"
 
 A informação contida em "trainData.csv" é utilizada para treinar redes neurais que utilizam ReLu, tangente hiperbólica e sigmoide como funções de ativação de seus neurônios. As redes variam em tamanho e quantidade de neurônios por camada. O processo de treinamento é realizado em "C_trainClassifiers".
 
