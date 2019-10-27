@@ -2,7 +2,8 @@
 ##### Proposta de solução para resolver o problema apresentado no processo seletivo de 2019 do grupo de pesquisa Bio Chaves <http://biochaves.com/processo-seletivo/>
 
 ### Introdução
-A solução proposta é baseada na identificação da mão a partir da assinatura do seu formato (*shape signature*) utilizando os descritores de fourier da função distância do centroide (*Centroid Distance Function*) em conjunto com redes neurais.\
+A solução proposta é baseada na identificação da mão a partir da assinatura do seu formato (*shape signature*) utilizando os descritores de fourier da função distância do centroide (*Centroid Distance Function*) em conjunto com redes neurais.
+
 A função distância do centroide  é formada pelas distâncias euclidianas entre o centroide de um objeto e os pontos que formam o seu contorno. Em processamento de imagens a função distância do centroide, às vezes chamada assinatura da forma, é considerada um descritor do formato de objetos. O trabalho de COSGRIFF (1960) foi o primeiro a propor o uso dos descritores de fourier para identificar objetos a partir da sua assinatura da forma. A ideia é representar o contorno do objeto por um conjunto de números que representem as frequências que formam o seu contorno. No caso dos descritores de fourier este conjunto é formado pelos coeficientes da transformada discreta de fourier da função distância do centroide (ALHILAL et al., 2015) (UCI DEPARTMENT OFMATHEMATICS, 2011).
 
 [1] COSGRIFF, R. L. Identification of shape.OHIO STATE UNIVERSITY RESEARCHFOUNDATION, COLUMBUS, REP. 820-11,. ASTIA AD 254 792, 1960\
