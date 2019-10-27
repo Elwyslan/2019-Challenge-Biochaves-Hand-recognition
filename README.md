@@ -28,6 +28,6 @@ A informação contida em "trainData.csv" é utilizada para treinar redes neurai
 Após treinadas, as redes neurais que obtiveram acurácia de treinamento maior do que 90% foram utilizadas para construção de um classificador de votação por maioria (*Majority Voting* ou *Majority Rule*). Este classificador utiliza os coeficientes de fourier extraídos do contorno da mão em "marcaMao.jpg" pra inferir o nome de quem deixou à marca. O processo de predição é realizado por "D_evaluateModels.py".
 
 ### Resultados
-Foram treinadas 72 redes neurais, destas, apenas 14 obtiveram acurácia de treinamento superior a 90%. Quando submetidas aos descritores de fourier extraídos do contorno da mão em "marcaMao.jpg" todas as redes apontaram que **Thiago, de quem foram coletadas as impressões "thi01" e "thi02", é o responsável por deixar à marca da mão em "marcaMao.jpg"**.
+Foram treinadas 72 redes neurais, destas, apenas 14 obtiveram acurácia de treinamento superior a 90%. Quando submetidas aos descritores de fourier extraídos do contorno da mão em "marcaMao.jpg" todas as redes apontaram que Thiago, de quem foram coletadas as impressões "thi01" e "thi02", é o responsável por deixar à marca.
 
 Conclusão: **A marca da mão pertence a Thiago**.
