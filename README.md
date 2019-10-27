@@ -14,9 +14,9 @@ A função distância do centroide  é formada pelas distâncias euclidianas ent
 ### Metodologia
 Todos os códigos foram escritos na linguagem Python v3.6 com os pacotes NumPy v1.16.2, SciPy v1.2.1, Pandas v0.24.1, Tensorflow-gpu v1.12.0 e Keras v2.2.4.
 
-A solução proposta é composta por 3 etapas:
-1 - Preparar os dados de treinamento e avaliação
-2 - Treinar os classificadores com os dados de treinamento
+A solução proposta é composta por 3 etapas:\
+1 - Preparar os dados de treinamento e avaliação\
+2 - Treinar os classificadores com os dados de treinamento\
 3 - Utilizar os classificadores com os dados de avaliação para resolver o problema
 
 O conjunto de treinamento é composto por um conjunto de 18 contornos de mãos que pertencem a 9 indivíduos distintos. Cada contorno é definido por 14 pontos chaves da mão. De cada contorno é extraída a função distância do centroide e, em seguida, é realizada a transformada discreta de fourier desta função. Os coeficientes das frequências que formam o contorno de cada mão são armazenadas no arquivo "trainData.csv". Este processo é realizado em "A_processRawData.py". Os 14 pontos que definem o contorno da mão em "marcaMao.jpg" foram identificados manualmente a partir de sua imagem. Estes pontos também deram origem a uma função distância do centroide cujos descritores de fourier foram armazenados em "targetHand.csv". Este processo é realizado em "B_processTargetHand.py"
