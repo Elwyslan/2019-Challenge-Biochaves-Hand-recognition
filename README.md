@@ -19,13 +19,13 @@ A solução proposta é dividida em 3 partes:\
 2 - Treinar os classificadores com os dados de treinamento\
 3 - Utilizar os classificadores com os dados de avaliação para resolver o problema
 
-O conjunto de treinamento é composto por 18 contornos de mãos que pertencem a 9 indivíduos distintos e cada contorno é definido por 14 pontos. De cada contorno é extraída a função distância do centroide e, em seguida, é realizada a transformada discreta de fourier desta função.
+O conjunto de treinamento é composto por 18 contornos de mãos que pertencem a 9 indivíduos distintos. Cada contorno é definido por 14 pontos. De cada contorno é extraída a função distância do centroide e, em seguida, é realizada a transformada discreta de fourier desta função. Os coeficientes das frequências que formam o contorno de cada mão são armazenados no arquivo "trainData.csv". Este processo é realizado por "A_processRawData.py".
 
-Os coeficientes das frequências que formam o contorno de cada mão são armazenadas no arquivo "trainData.csv". Este processo é realizado em "A_processRawData.py". Os 14 pontos que definem o contorno da mão em "marcaMao.jpg" foram identificados manualmente a partir de sua imagem. Estes pontos também deram origem a uma função distância do centroide cujos descritores de fourier foram armazenados em "targetHand.csv". Este processo é realizado em "B_processTargetHand.py"
+Os 14 pontos que definem o contorno da mão em "marcaMao.jpg" foram identificados manualmente a partir de sua imagem. Estes pontos também deram origem a uma função distância do centroide cujos descritores de fourier foram armazenados em "targetHand.csv". Este processo é realizado por "B_processTargetHand.py"
 
-A informação contida em "trainData.csv" é utilizada para treinar redes neurais que utilizam ReLu, tangente hiperbólica e sigmoide como funções de ativação de seus neurônios. As redes variam em tamanho e quantidade de neurônios por camada. O processo de treinamento é realizado em "C_trainClassifiers".
+A informação contida em "trainData.csv" é utilizada para treinar redes neurais que utilizam ReLu, tangente hiperbólica e sigmoide como funções de ativação de seus neurônios. As redes variam em tamanho e quantidade de neurônios por camada. O processo de treinamento é realizado por "C_trainClassifiers".
 
-Após treinadas as redes neurais que obtiveram acurácia de treinamento maior do que 90% foram utilizadas para construção de um classificador de votação por maioria (majority voting ou Majority rule) que utiliza os coeficientes de fourier extraídos do contorno da mão em "marcaMao.jpg" pra inferir o nome de quem deixou à marca . O processo de predição é realizado em "D_evaluateModels.py".
+Após treinadas as redes neurais que obtiveram acurácia de treinamento maior do que 90% foram utilizadas para construção de um classificador de votação por maioria (majority voting ou Majority rule) que utiliza os coeficientes de fourier extraídos do contorno da mão em "marcaMao.jpg" pra inferir o nome de quem deixou à marca . O processo de predição é realizado por "D_evaluateModels.py".
 
 ### Resultados
 Foram treinadas 72 redes neurais, destas, apenas 14 obtiveram acurácia de treinamento superior a 90%. Quando submetidas aos descritores de fourier extraídos do contorno da mão em "marcaMao.jpg" todas as redes apontaram que **Thiago, de quem foram coletadas as impressões "thi01" e "thi02", é o responsável por deixar à marca da mão em "marcaMao.jpg"**.
